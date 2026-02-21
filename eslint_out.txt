@@ -1,0 +1,9 @@
+
+C:\Users\Ibrahim A. Ahmed\OneDrive\Desktop\react-portfolio\src\components\AboutSection.jsx
+  16:10  error  'profile' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Ibrahim A. Ahmed\OneDrive\Desktop\react-portfolio\src\components\Header.jsx
+  16:29  error  'Icon' is defined but never used  no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+

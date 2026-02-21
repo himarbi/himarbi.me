@@ -1,0 +1,104 @@
+﻿
+> react-portfolio@0.0.0 build
+> vite build
+
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 1508 modules transformed.
+node.exe : [31mΓ£ù[39m 
+Build failed in 14.13s
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : 
+    NotSpecified: ([31mΓ£ù  
+  [39m Build failed in 14.1   
+ 3s:String) [], RemoteExce    
+ption
+    + FullyQualifiedErrorId : 
+    NativeCommandError
+ 
+[31merror during build:
+[31msrc/components/ContactMeS
+ection.jsx (6:4): 
+"FormControl" is not exported 
+by "node_modules/@chakra-ui/re
+act/dist/esm/index.js", 
+imported by "src/components/Co
+ntactMeSection.jsx".[31m
+file: [36mC:/Users/Ibrahim 
+A. Ahmed/OneDrive/Desktop/reac
+t-portfolio/src/components/Con
+tactMeSection.jsx:6:4[31m
+[33m
+4:     Box,
+5:     Button,
+6:     FormControl,
+       ^
+7:     FormErrorMessage,
+8:     FormLabel,
+[31m
+    at getRollupError (file://
+/C:/Users/Ibrahim%20A.%20Ahmed
+/OneDrive/Desktop/react-portfo
+lio/node_modules/rollup/dist/e
+s/shared/parseAst.js:402:41)
+    at error (file:///C:/Users
+/Ibrahim%20A.%20Ahmed/OneDrive
+/Desktop/react-portfolio/node_
+modules/rollup/dist/es/shared/
+parseAst.js:398:42)
+    at Module.error (file:///C
+:/Users/Ibrahim%20A.%20Ahmed/O
+neDrive/Desktop/react-portfoli
+o/node_modules/rollup/dist/es/
+shared/node-entry.js:17040:16)
+    at Module.traceVariable (f
+ile:///C:/Users/Ibrahim%20A.%2
+0Ahmed/OneDrive/Desktop/react-
+portfolio/node_modules/rollup/
+dist/es/shared/node-entry.js:1
+7452:29)
+    at 
+ModuleScope.findVariable (file
+:///C:/Users/Ibrahim%20A.%20Ah
+med/OneDrive/Desktop/react-por
+tfolio/node_modules/rollup/dis
+t/es/shared/node-entry.js:1507
+0:39)
+    at 
+ReturnValueScope.findVariable 
+(file:///C:/Users/Ibrahim%20A.
+%20Ahmed/OneDrive/Desktop/reac
+t-portfolio/node_modules/rollu
+p/dist/es/shared/node-entry.js
+:5673:38)
+    at FunctionBodyScope.findV
+ariable (file:///C:/Users/Ibra
+him%20A.%20Ahmed/OneDrive/Desk
+top/react-portfolio/node_modul
+es/rollup/dist/es/shared/node-
+entry.js:5673:38)
+    at Identifier.bind (file:/
+//C:/Users/Ibrahim%20A.%20Ahme
+d/OneDrive/Desktop/react-portf
+olio/node_modules/rollup/dist/
+es/shared/node-entry.js:5447:4
+0)
+    at CallExpression.bind (fi
+le:///C:/Users/Ibrahim%20A.%20
+Ahmed/OneDrive/Desktop/react-p
+ortfolio/node_modules/rollup/d
+ist/es/shared/node-entry.js:28
+25:28)
+    at CallExpression.bind (fi
+le:///C:/Users/Ibrahim%20A.%20
+Ahmed/OneDrive/Desktop/react-p
+ortfolio/node_modules/rollup/d
+ist/es/shared/node-entry.js:12
+179:15)[39m
