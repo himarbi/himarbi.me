@@ -4,8 +4,6 @@ import {
     Heading,
     Text,
     VStack,
-    HStack,
-    Icon,
     usePrefersReducedMotion,
     Wrap,
     WrapItem,
@@ -13,32 +11,9 @@ import {
     useColorModeValue
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { FiLayout, FiZap, FiEye, FiShield } from 'react-icons/fi';
+import { skillsList } from '../data/skills';
 
 const MotionBox = motion(Box);
-
-const features = [
-    {
-        title: 'Component Architecture',
-        description: 'Building scalable, reusable, and maintainable component libraries.',
-        icon: FiLayout,
-    },
-    {
-        title: 'Performance Optimization',
-        description: 'Fine-tuning React lifecycles and bundle sizes for speed.',
-        icon: FiZap,
-    },
-    {
-        title: 'Accessibility-First UI',
-        description: 'Ensuring all interfaces are keyboard navigable and screen-reader friendly.',
-        icon: FiEye,
-    },
-    {
-        title: 'Testing & Maintainability',
-        description: 'Comprehensive unit and integration testing workflows.',
-        icon: FiShield,
-    },
-];
 
 const AboutSection = () => {
     const prefersReducedMotion = usePrefersReducedMotion();
@@ -52,11 +27,12 @@ const AboutSection = () => {
     const featureBg = useColorModeValue('bg', 'gray.800');
     const featureBorder = useColorModeValue('gray.200', 'whiteAlpha.200');
     const featureHoverBorder = useColorModeValue('brand.200', 'brand.500');
-    const featureIconBg = useColorModeValue('white', 'gray.700');
-    const featureTitleColor = useColorModeValue('gray.800', 'white');
-    const featureDescColor = useColorModeValue('gray.600', 'gray.400');
+    const categoryTitleColor = useColorModeValue('brand.600', 'brand.300');
 
-    const badgeHoverBg = useColorModeValue('blue.200', 'blue.700');
+    const badgeBg = useColorModeValue('gray.100', 'whiteAlpha.200');
+    const badgeColor = useColorModeValue('gray.700', 'whiteAlpha.900');
+    const badgeHoverBg = useColorModeValue('gray.200', 'whiteAlpha.300');
+
     const featureHoverBoxShadow = useColorModeValue('md', 'dark-lg');
 
     return (
@@ -69,7 +45,7 @@ const AboutSection = () => {
                     transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 >
                     <Heading as="h2" size="2xl" mb={12} textAlign="center" color={titleColor}>
-                        Behind the Code
+                        Behind the Code & Arsenal
                     </Heading>
                 </MotionBox>
 
@@ -80,7 +56,7 @@ const AboutSection = () => {
                         viewport={{ once: true, margin: '-100px' }}
                         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     >
-                        <VStack align="flex-start" spacing={6}>
+                        <VStack align={{ base: 'center', lg: 'flex-start' }} textAlign={{ base: 'center', lg: 'left' }} spacing={6}>
                             <Text fontSize="xl" fontWeight="semibold" color={subtitleColor}>
                                 What I bring to the table
                             </Text>
@@ -92,8 +68,8 @@ const AboutSection = () => {
                             </Text>
 
                             <Box mt={4}>
-                                <Text fontWeight="bold" mb={3} color={headingColor}>Core Technologies</Text>
-                                <Wrap spacing={2}>
+                                <Text fontWeight="bold" mb={3} color={headingColor} textAlign={{ base: 'center', lg: 'left' }}>Core Technologies</Text>
+                                <Wrap spacing={2} justify={{ base: 'center', lg: 'flex-start' }}>
                                     {['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'React', 'Python', 'Java', 'SQL', 'Git', 'GitHub', 'CLI'].map((tech) => (
                                         <WrapItem key={tech}>
                                             <Badge colorScheme="blue" variant="subtle" px={3} py={1} borderRadius="md" transition="all 0.2s" _hover={{ transform: 'scale(1.05)', bg: badgeHoverBg }}>
@@ -113,10 +89,10 @@ const AboutSection = () => {
                         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     >
                         <VStack spacing={6} align="stretch">
-                            {features.map((feature, index) => (
+                            {skillsList.map((category, index) => (
                                 <Box
                                     key={index}
-                                    p={5}
+                                    p={6}
                                     bg={featureBg}
                                     borderRadius="xl"
                                     border="1px solid"
@@ -124,19 +100,30 @@ const AboutSection = () => {
                                     transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
                                     _hover={{ boxShadow: featureHoverBoxShadow, transform: 'translateX(4px)', borderColor: featureHoverBorder }}
                                 >
-                                    <HStack spacing={4} align="flex-start">
-                                        <Box p={3} bg={featureIconBg} borderRadius="lg" color={subtitleColor} boxShadow="sm">
-                                            <Icon as={feature.icon} boxSize={6} />
-                                        </Box>
-                                        <VStack align="flex-start" spacing={1}>
-                                            <Text fontWeight="bold" fontSize="lg" color={featureTitleColor}>
-                                                {feature.title}
-                                            </Text>
-                                            <Text color={featureDescColor}>
-                                                {feature.description}
-                                            </Text>
-                                        </VStack>
-                                    </HStack>
+                                    <Heading as="h3" size="md" mb={4} color={categoryTitleColor}>
+                                        {category.category}
+                                    </Heading>
+                                    <Wrap spacing={3}>
+                                        {category.skills.map((skill) => (
+                                            <WrapItem key={skill}>
+                                                <Badge
+                                                    colorScheme="gray"
+                                                    bg={badgeBg}
+                                                    color={badgeColor}
+                                                    px={4}
+                                                    py={2}
+                                                    borderRadius="full"
+                                                    fontSize="sm"
+                                                    fontWeight="medium"
+                                                    textTransform="none"
+                                                    transition="all 0.2s"
+                                                    _hover={{ transform: 'scale(1.05)', bg: badgeHoverBg }}
+                                                >
+                                                    {skill}
+                                                </Badge>
+                                            </WrapItem>
+                                        ))}
+                                    </Wrap>
                                 </Box>
                             ))}
                         </VStack>

@@ -1,14 +1,17 @@
-import { Box, Flex, HStack, Button, IconButton, useDisclosure, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Text, VStack, Icon, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Box, Flex, HStack, Button, IconButton, useDisclosure, Text, VStack, Icon, useColorMode, useColorModeValue, Collapse } from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate, Link as RouterLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { profile } from '../data/profile';
+import { posts } from '../data/posts';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const NAV_LINKS = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
     { name: 'Certifications', href: '#certifications' },
+    { name: 'Blog', href: '#blog-showcase' },
 ];
 
 const SocialIcon = ({ icon, href }) => {
@@ -26,6 +29,8 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [scrolled, setScrolled] = useState(false);
     const { colorMode, toggleColorMode } = useColorMode();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const bgScroll = useColorModeValue('rgba(255, 255, 255, 0.9)', 'rgba(26, 32, 44, 0.9)');
     const textColor = useColorModeValue('gray.600', 'gray.300');
@@ -60,13 +65,30 @@ const Header = () => {
 
     const handleClick = (e, href) => {
         e.preventDefault();
-        onClose();
-        const target = document.querySelector(href);
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth',
-            });
+
+        // Immediately close the mobile menu
+        if (isOpen) {
+            onClose();
+        }
+
+        const executeScroll = () => {
+            setTimeout(() => {
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth',
+                    });
+                }
+            }, 150);
+        };
+
+        if (location.pathname !== '/') {
+            navigate('/');
+            // Need a slightly longer timeout to allow the Home component to mount fully
+            setTimeout(executeScroll, 100);
+        } else {
+            executeScroll();
         }
     };
 
@@ -82,6 +104,33 @@ const Header = () => {
             boxShadow={scrolled ? 'sm' : 'none'}
             transition="all 0.3s ease-in-out"
         >
+            {/* Animated Blog Posts Ticker */}
+            <Box w="full" bg={useColorModeValue('brand.500', 'brand.600')} color="white" py={1.5} overflow="hidden" position="relative" display="flex" alignItems="center">
+                <motion.div
+                    animate={{ x: ['0%', '-50%'] }}
+                    transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+                    style={{ whiteSpace: 'nowrap', display: 'flex', width: 'max-content' }}
+                >
+                    {/* Quadruple mapping to ensure enough width for infinite scrolling loop regardless of screen size */}
+                    {[...posts, ...posts, ...posts, ...posts].map((post, idx) => (
+                        <Text
+                            as={RouterLink}
+                            to={`/blog/${post.id}`}
+                            key={idx}
+                            fontSize="xs"
+                            fontWeight="bold"
+                            textTransform="uppercase"
+                            letterSpacing="widest"
+                            mx={8}
+                            _hover={{ color: 'whiteAlpha.700', textDecoration: 'underline' }}
+                            display="inline-block"
+                        >
+                            🔥 NEW POST: {post.title}
+                        </Text>
+                    ))}
+                </motion.div>
+            </Box>
+
             <Flex maxW="1280px" mx="auto" px={{ base: 6, md: 8 }} py={4} align="center" justify="space-between">
                 <Text
                     as="a"
@@ -101,25 +150,35 @@ const Header = () => {
                 </Text>
 
                 <HStack as="nav" spacing={6} display={{ base: 'none', lg: 'flex' }}>
-                    {NAV_LINKS.map((link) => (
-                        <Box
-                            as="a"
-                            key={link.name}
-                            href={link.href}
-                            onClick={(e) => handleClick(e, link.href)}
-                            fontWeight="medium"
-                            fontSize="sm"
-                            color={activeSection === link.href.slice(1) ? activeColor : textColor}
-                            _hover={{ color: activeColor }}
-                            position="relative"
-                            transition="color 0.2s"
-                        >
-                            {link.name}
-                            {activeSection === link.href.slice(1) && (
-                                <Box position="absolute" bottom="-2px" left={0} w="full" h="2px" bg={activeColor} borderRadius="full" />
-                            )}
-                        </Box>
-                    ))}
+                    {NAV_LINKS.map((link) => {
+                        const isActive = link.isRoute
+                            ? location.pathname === link.href || location.pathname.startsWith('/blog') && link.href === '/blog'
+                            : activeSection === link.href.slice(1) && location.pathname === '/';
+
+                        return (
+                            <Box
+                                as={link.isRoute ? RouterLink : 'a'}
+                                key={link.name}
+                                to={link.isRoute ? link.href : undefined}
+                                href={!link.isRoute ? link.href : undefined}
+                                onClick={(e) => {
+                                    if (!link.isRoute) handleClick(e, link.href);
+                                    else if (isOpen) onClose();
+                                }}
+                                fontWeight="medium"
+                                fontSize="sm"
+                                color={isActive ? activeColor : textColor}
+                                _hover={{ color: activeColor }}
+                                position="relative"
+                                transition="color 0.2s"
+                            >
+                                {link.name}
+                                {isActive && (
+                                    <Box position="absolute" bottom="-2px" left={0} w="full" h="2px" bg={activeColor} borderRadius="full" />
+                                )}
+                            </Box>
+                        );
+                    })}
                 </HStack>
 
                 <HStack spacing={4}>
@@ -150,55 +209,66 @@ const Header = () => {
                     </Button>
 
                     <IconButton
-                        icon={<HamburgerIcon />}
+                        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                         variant="ghost"
                         display={{ base: 'inline-flex', lg: 'none' }}
-                        aria-label="Open menu"
-                        onClick={onOpen}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        onClick={isOpen ? onClose : onOpen}
                     />
                 </HStack>
             </Flex>
 
-            <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
-                <DrawerOverlay />
-                <DrawerContent bg={useColorModeValue('white', 'gray.900')}>
-                    <DrawerCloseButton />
-                    <DrawerHeader borderBottomWidth="1px">Menu</DrawerHeader>
-                    <DrawerBody>
-                        <VStack as="nav" spacing={6} align="flex-start" mt={8}>
-                            {NAV_LINKS.map((link) => (
+            <Collapse in={isOpen} animateOpacity>
+                <Box
+                    bg={useColorModeValue('white', 'gray.900')}
+                    boxShadow="sm"
+                    display={{ lg: 'none' }}
+                    borderTop="1px solid"
+                    borderColor={useColorModeValue('gray.100', 'gray.800')}
+                >
+                    <VStack as="nav" spacing={6} align="center" py={8} px={6}>
+                        {NAV_LINKS.map((link) => {
+                            const isActive = link.isRoute
+                                ? location.pathname === link.href || location.pathname.startsWith('/blog') && link.href === '/blog'
+                                : activeSection === link.href.slice(1) && location.pathname === '/';
+
+                            return (
                                 <Text
-                                    as="a"
+                                    as={link.isRoute ? RouterLink : 'a'}
                                     key={link.name}
-                                    href={link.href}
-                                    onClick={(e) => handleClick(e, link.href)}
-                                    fontSize="lg"
-                                    fontWeight="medium"
-                                    color={activeSection === link.href.slice(1) ? activeColor : inactiveColor}
+                                    to={link.isRoute ? link.href : undefined}
+                                    href={!link.isRoute ? link.href : undefined}
+                                    onClick={(e) => {
+                                        if (!link.isRoute) handleClick(e, link.href);
+                                        else if (isOpen) onClose();
+                                    }}
+                                    fontSize="xl"
+                                    fontWeight="semibold"
+                                    color={isActive ? activeColor : inactiveColor}
                                 >
                                     {link.name}
                                 </Text>
-                            ))}
-                            <Text
-                                as="a"
-                                href="#contact"
-                                onClick={(e) => handleClick(e, '#contact')}
-                                fontSize="lg"
-                                fontWeight="medium"
-                            >
-                                Contact
-                            </Text>
+                            );
+                        })}
+                        <Text
+                            as="a"
+                            href="#contact"
+                            onClick={(e) => handleClick(e, '#contact')}
+                            fontSize="xl"
+                            fontWeight="semibold"
+                        >
+                            Contact
+                        </Text>
 
-                            <HStack pt={8} spacing={6}>
-                                <SocialIcon icon={FaGithub} href={profile.socials.github} />
-                                <SocialIcon icon={FaLinkedin} href={profile.socials.linkedin} />
-                                <SocialIcon icon={FaTwitter} href={profile.socials.twitter} />
-                                <SocialIcon icon={FaInstagram} href={profile.socials.instagram} />
-                            </HStack>
-                        </VStack>
-                    </DrawerBody>
-                </DrawerContent>
-            </Drawer>
+                        <HStack pt={4} spacing={6}>
+                            <SocialIcon icon={FaGithub} href={profile.socials.github} />
+                            <SocialIcon icon={FaLinkedin} href={profile.socials.linkedin} />
+                            <SocialIcon icon={FaTwitter} href={profile.socials.twitter} />
+                            <SocialIcon icon={FaInstagram} href={profile.socials.instagram} />
+                        </HStack>
+                    </VStack>
+                </Box>
+            </Collapse>
         </Box>
     );
 };

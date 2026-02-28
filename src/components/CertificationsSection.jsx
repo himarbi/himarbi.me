@@ -59,6 +59,8 @@ const CertificationsSection = () => {
                 py={4}
                 sx={{
                     _hover: { '.marquee-content': { animationPlayState: 'paused' } },
+                    _active: { '.marquee-content': { animationPlayState: 'paused' } },
+                    _focusWithin: { '.marquee-content': { animationPlayState: 'paused' } },
                     // Fade masks for the edges
                     maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
                     WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'

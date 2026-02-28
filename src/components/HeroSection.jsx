@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Text, Button, Image, HStack, VStack, Badge, usePrefersReducedMotion, Icon, useColorModeValue, Wrap, WrapItem } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Link as RouterLink } from 'react-router-dom';
 import { profile } from '../data/profile';
 
 const MotionBox = motion(Box);
@@ -28,6 +29,40 @@ const SocialIcon = ({ icon, href }) => {
         >
             <Icon as={icon} boxSize={5} />
         </Box>
+    );
+};
+
+const Sticker = ({ children, top, right, bottom, left, rotation, delay }) => {
+    const bg = useColorModeValue('white', 'gray.800');
+    const borderColor = useColorModeValue('gray.100', 'whiteAlpha.200');
+    const color = useColorModeValue('gray.800', 'white');
+    const shadows = useColorModeValue('xl', 'dark-lg');
+
+    return (
+        <MotionBox
+            position="absolute"
+            top={top}
+            right={right}
+            bottom={bottom}
+            left={left}
+            bg={bg}
+            px={4}
+            py={2.5}
+            borderRadius="full"
+            boxShadow={shadows}
+            border="1px solid"
+            borderColor={borderColor}
+            zIndex={10}
+            initial={{ opacity: 0, scale: 0.5, rotate: 0 }}
+            animate={{ opacity: 1, scale: 1, rotate: rotation }}
+            transition={{ duration: 0.6, delay, type: 'spring', stiffness: 200 }}
+            whileHover={{ scale: 1.1 }}
+            cursor="pointer"
+        >
+            <Text fontWeight="bold" fontSize={{ base: "xs", md: "sm" }} color={color} whiteSpace="nowrap">
+                {children}
+            </Text>
+        </MotionBox>
     );
 };
 
@@ -107,9 +142,11 @@ const HeroSection = () => {
                 zIndex={1}
             >
                 <MotionVStack
-                    align="flex-start"
+                    align={{ base: 'center', lg: 'flex-start' }}
+                    textAlign={{ base: 'center', lg: 'left' }}
                     spacing={6}
                     maxW="xl"
+                    w="full"
                     variants={containerVariants}
                     initial="hidden"
                     animate="show"
@@ -120,27 +157,35 @@ const HeroSection = () => {
                         </Badge>
                     </MotionBox>
 
-                    <MotionBox variants={itemVariants}>
-                        <Heading as="h1" fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }} fontWeight="800" letterSpacing="tight" lineHeight="1.1" color={titleColor}>
-                            I'm <Text as="span" color="brand.500">{profile.name.split(' ')[0]}</Text> <br />
-                            {profile.name.split(' ').slice(1).join(' ')}
+                    <MotionBox variants={itemVariants} w="full">
+                        <Heading
+                            as="h1"
+                            fontFamily="'Playfair Display', serif"
+                            fontWeight="700"
+                            fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '5xl', xl: '6xl' }}
+                            lineHeight="1.2"
+                            color={titleColor}
+                            textAlign={{ base: 'center', lg: 'left' }}
+                            mb={2}
+                        >
+                            Hi, I'm <Text as="span" color="brand.500">Ibrahim.</Text>
                         </Heading>
                     </MotionBox>
 
                     <MotionBox variants={itemVariants}>
-                        <Text fontSize="2xl" fontWeight="semibold" color={subtitleColor}>
-                            {profile.role}
+                        <Text fontSize="2xl" fontWeight="medium" color={subtitleColor} textAlign={{ base: 'center', lg: 'left' }}>
+                            A passionate <Text as="span" fontWeight="bold" color={titleColor}>{profile.role}</Text> crafting beautiful web experiences.
                         </Text>
                     </MotionBox>
 
                     <MotionBox variants={itemVariants}>
-                        <Text fontSize="lg" color={descColor} lineHeight="tall">
+                        <Text fontSize="lg" color={descColor} lineHeight="tall" textAlign={{ base: 'center', lg: 'left' }}>
                             {profile.description}
                         </Text>
                     </MotionBox>
 
-                    <MotionBox variants={itemVariants} w="full" pt={2}>
-                        <Wrap spacing={2}>
+                    <MotionBox variants={itemVariants} w="full" pt={2} display="flex" justifyContent={{ base: 'center', lg: 'flex-start' }}>
+                        <Wrap spacing={2} justify={{ base: 'center', lg: 'flex-start' }}>
                             {coreSkills.map((skill) => (
                                 <WrapItem key={skill}>
                                     <Badge
@@ -161,10 +206,12 @@ const HeroSection = () => {
                         </Wrap>
                     </MotionBox>
 
-                    <MotionHStack spacing={4} pt={4} variants={itemVariants}>
+                    <MotionHStack spacing={4} pt={4} variants={itemVariants} justify={{ base: 'center', lg: 'flex-start' }} w="full">
                         <Button
                             as="a"
-                            href="#about"
+                            href={`${profile.socials.github}?tab=repositories`}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             colorScheme="brand"
                             size="lg"
                             px={8}
@@ -172,18 +219,17 @@ const HeroSection = () => {
                             Explore My Work
                         </Button>
                         <Button
-                            as="a"
-                            href="/cv.pdf"
-                            target="_blank"
+                            as={RouterLink}
+                            to="/cv"
                             variant="outline"
                             size="lg"
                             px={8}
                         >
-                            Download CV
+                            View CV
                         </Button>
                     </MotionHStack>
 
-                    <MotionHStack spacing={4} pt={4} variants={itemVariants}>
+                    <MotionHStack spacing={4} pt={4} variants={itemVariants} justify={{ base: 'center', lg: 'flex-start' }} w="full">
                         <SocialIcon icon={FaGithub} href={profile.socials.github} />
                         <SocialIcon icon={FaLinkedin} href={profile.socials.linkedin} />
                         <SocialIcon icon={FaTwitter} href={profile.socials.twitter} />
@@ -196,6 +242,7 @@ const HeroSection = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                        position="relative"
                     >
                         <MotionBox animate={floatingAnimation}>
                             <Box
@@ -206,6 +253,7 @@ const HeroSection = () => {
                                 transform="rotate(2deg)"
                                 _hover={{ transform: 'rotate(0deg)' }}
                                 transition="transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
+                                position="relative"
                             >
                                 <Image
                                     src="/profile.jpg"
@@ -215,6 +263,17 @@ const HeroSection = () => {
                                     h={{ base: "260px", md: "460px" }}
                                     objectFit="cover"
                                 />
+
+                                {/* Interactive Stickers */}
+                                <Sticker top={{ base: "-10px", md: "-20px" }} right={{ base: "-5px", md: "-10px" }} rotation={12} delay={0.8}>
+                                    ✨ Clean Code
+                                </Sticker>
+                                <Sticker bottom={{ base: "30px", md: "40px" }} left={{ base: "-15px", md: "-30px" }} rotation={-15} delay={1.0}>
+                                    🚀 Problem Solver
+                                </Sticker>
+                                <Sticker bottom={{ base: "-10px", md: "-15px" }} right={{ base: "20px", md: "30px" }} rotation={5} delay={1.2}>
+                                    ☕ Coffee Lover
+                                </Sticker>
                             </Box>
                         </MotionBox>
                     </MotionBox>
