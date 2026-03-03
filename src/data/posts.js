@@ -1,14 +1,14 @@
 export const posts = [
-    {
-        id: 'mastering-react-compiler-2024',
-        title: 'Mastering React Compiler in 2024: The End of useMemo?',
-        summary: 'Explore how the new React Compiler automates memoization, drastically improving performance and simplifying Developer Experience (DX) by making useMemo and useCallback obsolete.',
-        date: 'Oct 15, 2024',
-        readTime: '15 min read',
-        category: 'React',
-        image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800&auto=format&fit=crop',
-        featured: true,
-        content: `
+  {
+    id: 'mastering-react-compiler-2024',
+    title: 'Mastering React Compiler in 2026: The End of useMemo?',
+    summary: 'Explore how the new React Compiler automates memoization, drastically improving performance and simplifying Developer Experience (DX) by making useMemo and useCallback obsolete.',
+    date: 'Mar 02, 2026',
+    readTime: '15 min read',
+    category: 'React',
+    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800&auto=format&fit=crop',
+    featured: true,
+    content: `
 ### The Evolution of React Performance and the UI Rendering Cycle
 For years, React developers have wrestled with manual memoization to prevent unnecessary re-renders. When building complex single-page applications (SPAs), managing the render cycle becomes the primary bottleneck for performance. In traditional React applications, every state change cascades down the component tree, causing all child components to re-render unless explicitly memoized. This manual approach to performance optimization introduced a cognitive load that developers had to constantly bear. Hooks like \`useMemo\` and \`useCallback\` became essential tools for optimizing complex components, but they were never intended to be the final solution.
 
@@ -103,19 +103,19 @@ Running your application in React Strict Mode ensures that your components are e
 ### The Impact on the React Ecosystem
 The React Compiler is arguably the biggest update to the React ecosystem since the introduction of Hooks in 2018. It fundamentally changes the conversation around React's performance compared to frameworks like Vue, Svelte, or SolidJS that use signals or fine-grained reactivity. With the compiler, React maintains its mental model of "UI as a function of state" while achieving performance characteristics comparable to its most performant competitors.
 
-As you build applications in 2024 and beyond, focus entirely on building great features and user experiences. Let the compiler handle the math.
+As you build applications in 2026 and beyond, focus entirely on building great features and user experiences. Let the compiler handle the math.
         `
-    },
-    {
-        id: 'ultimate-guide-nextjs-15',
-        title: 'The Ultimate Guide to Next.js 15: Server Actions and PPR',
-        summary: 'A massive 1500-word deep dive into Next.js 15 features, exploring Server Actions, Partial Prerendering (PPR), Turbopack advancements, and how to structure heavily cached full-stack apps.',
-        date: 'Oct 10, 2024',
-        readTime: '15 min read',
-        category: 'Next.js',
-        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
-        featured: true,
-        content: `
+  },
+  {
+    id: 'ultimate-guide-nextjs-15',
+    title: 'The Ultimate Guide to Next.js 15: Server Actions and PPR',
+    summary: 'A massive 1500-word deep dive into Next.js 15 features, exploring Server Actions, Partial Prerendering (PPR), Turbopack advancements, and how to structure heavily cached full-stack apps.',
+    date: 'Feb 23, 2026',
+    readTime: '15 min read',
+    category: 'Next.js',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
+    featured: true,
+    content: `
 ### The Paradigm Shift in Full-Stack Frameworks and Web Infrastructure
 Next.js 15 represents a massive leap forward in how we build React applications. By seamlessly blending server and client capabilities, it empowers developers to build faster, more dynamic applications with less code. For years, the divide between the frontend and the backend required creating complex REST APIs or GraphQL layers just to fetch simple database records or submit forms. With the App Router maturing, Next.js 15 bridges this gap entirely.
 
@@ -221,17 +221,17 @@ Using \`revalidateTag\` allows for granular cache purging. You can tag a fetch r
 ### Conclusion
 Next.js 15 is not just an incremental update; it’s a total redefinition of the modern web stack. By leveraging Server Actions, you simplify your data mutations. By adopting PPR, you deliver unparalleled performance. Start experimenting with these features today to master the Next.js landscape.
         `
-    },
-    {
-        id: '10-advanced-css-techniques-2024',
-        title: '10 Advanced CSS Techniques You\'re Not Using But Definitely Should Be',
-        summary: 'Level up your frontend skills with these modern, native CSS features including the :has() pseudo-class, container queries, view transitions, and deep scroll-driven animations.',
-        date: 'Oct 05, 2024',
-        readTime: '15 min read',
-        category: 'CSS',
-        image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?q=80&w=800&auto=format&fit=crop',
-        featured: false,
-        content: `
+  },
+  {
+    id: '10-advanced-css-techniques-2024',
+    title: '10 Advanced CSS Techniques You\'re Not Using But Definitely Should Be',
+    summary: 'Level up your frontend skills with these modern, native CSS features including the :has() pseudo-class, container queries, view transitions, and deep scroll-driven animations.',
+    date: 'Feb 16, 2026',
+    readTime: '15 min read',
+    category: 'CSS',
+    image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
 ### CSS is Evolving Faster Than Ever Before
 Gone are the days when you needed heavy JavaScript libraries like jQuery or even React \`useRef\` hooks just to achieve complex layouts or physics-based animations. Modern CSS has introduced a massive wave of powerful new features that are now widely supported across all major evergreen browsers (Chrome, Safari, Firefox, Edge).
 
@@ -350,17 +350,17 @@ Design for internationalization seamlessly by using logical properties (\`margin
 ### Embrace the Native Web
 By mastering these modern CSS features, you can significantly reduce your JavaScript bundle size, radically improve parsing performance, and create far more robust and maintainable interfaces for your end users. It's time to let CSS do the heavy lifting it was always meant to do.
         `
-    },
-    {
-        id: 'rise-of-local-ai-webgpu',
-        title: 'The Rise of Local AI: Running Massive LLMs in the Browser with WebGPU',
-        summary: 'An extensive 1500-word analysis on how WebGPU is revolutionizing web apps by enabling powerful multi-billion parameter AI models to run entirely client-side, ensuring total privacy and zero server costs.',
-        date: 'Sep 28, 2024',
-        readTime: '15 min read',
-        category: 'Artificial Intelligence',
-        image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
-        featured: true,
-        content: `
+  },
+  {
+    id: 'rise-of-local-ai-webgpu',
+    title: 'The Rise of Local AI: Running Massive LLMs in the Browser with WebGPU',
+    summary: 'An extensive 1500-word analysis on how WebGPU is revolutionizing web apps by enabling powerful multi-billion parameter AI models to run entirely client-side, ensuring total privacy and zero server costs.',
+    date: 'Feb 09, 2026',
+    readTime: '15 min read',
+    category: 'Artificial Intelligence',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
+    featured: true,
+    content: `
 ### The AI Revolution Shifts from Cloud Infrastructure to the Edge
 Until the end of 2023, the assumption in the generative AI space was that running Large Language Models (LLMs) required massive data centers equipped with thousands of Nvidia H100 GPUs. Startups were burning through venture capital just to cover their monthly OpenAI API bills or AWS server costs. Every interaction, every chat message, and every text summarization required a round-trip network request to a centralized server.
 
@@ -418,17 +418,17 @@ We are rapidly heading toward a reality where "AI-powered application" does not 
 
 Expect to see offline grammar spellcheckers, intelligent form auto-fillers, localized chatbot companions, and intelligent code assistants built natively into your favorite web applications—powered exclusively by the dormant GPU sitting exactly in front of you.
         `
-    },
-    {
-        id: 'advanced-typescript-patterns-enterprise',
-        title: 'Advanced TypeScript Patterns for Scaling Enterprise Applications',
-        summary: 'Elevate your enterprise engineering team\'s TypeScript game with an extensive guide on mapped types, conditional intersections, and global utility types to build uncompromisingly robust scale applications.',
-        date: 'Sep 20, 2024',
-        readTime: '15 min read',
-        category: 'TypeScript',
-        image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=800&auto=format&fit=crop',
-        featured: false,
-        content: `
+  },
+  {
+    id: 'advanced-typescript-patterns-enterprise',
+    title: 'Advanced TypeScript Patterns for Scaling Enterprise Applications',
+    summary: 'Elevate your enterprise engineering team\'s TypeScript game with an extensive guide on mapped types, conditional intersections, and global utility types to build uncompromisingly robust scale applications.',
+    date: 'Feb 02, 2026',
+    readTime: '15 min read',
+    category: 'TypeScript',
+    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
 ### Beyond the Basics: Evolving from \`any\` to Absolute Type Safety
 Most developers use TypeScript strictly for rudimentary type annotations and defining object interfaces. They treat it simply as "JavaScript with inline documentation." However, to truly leverage the devastatingly powerful capabilities of TypeScript in massive enterprise applications involving hundreds of data models, developers must learn advanced type mechanics. 
 
@@ -533,19 +533,19 @@ makeSecureRequest('PATCH /users');
 ### Conclusion
 By adopting these advanced enterprise patterns, you can create architectures and internal SDKs that document themselves implicitly. They mathematically guarantee correctness, catch profound business-logic errors instantaneously at compile time, and provide an unparalleled, frictionless developer experience for your software engineering organization.
         `
-    },
-    {
-        id: 'optimizing-core-web-vitals-2024',
-        title: 'Optimizing Core Web Vitals in 2024: A Step-by-Step Playbook for Engineering Teams',
-        summary: 'Master INP, LCP, and CLS with this massive 1500-word playbook. A comprehensive guide to fixing deeply embedded performance bottlenecks and ranking higher on Google SEO.',
-        date: 'Sep 12, 2024',
-        readTime: '15 min read',
-        category: 'Performance',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
-        featured: false,
-        content: `
+  },
+  {
+    id: 'optimizing-core-web-vitals-2024',
+    title: 'Optimizing Core Web Vitals in 2026: A Step-by-Step Playbook for Engineering Teams',
+    summary: 'Master INP, LCP, and CLS with this massive 1500-word playbook. A comprehensive guide to fixing deeply embedded performance bottlenecks and ranking higher on Google SEO.',
+    date: 'Jan 26, 2026',
+    readTime: '15 min read',
+    category: 'Performance',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
 ### The New King of Metrics: Interaction to Next Paint (INP)
-For years, frontend engineers focused heavily on First Input Delay (FID) to measure page responsiveness. However, in early 2024, Google officially replaced FID with **Interaction to Next Paint (INP)** as a Core Web Vital. This shift dramatically alters how we measure and prioritize web performance.
+For years, frontend engineers focused heavily on First Input Delay (FID) to measure page responsiveness. However, in early 2026, Google officially replaced FID with **Interaction to Next Paint (INP)** as a Core Web Vital. This shift dramatically alters how we measure and prioritize web performance.
 
 While FID only measured the very first interaction a user made on a page (often just a click on a cookie banner), INP takes a comprehensive look at the overall responsiveness of the page throughout its entire lifecycle. If a user clicks a button, types in an input, or opens an accordion menu, INP measures the latency between that action and the browser actually painting the visual update to the screen.
 
@@ -625,17 +625,17 @@ You cannot fix performance issues solely using Lighthouse in your local Chrome b
 
 Implement Real User Monitoring (RUM) using tools like Vercel Analytics, Datadog, or Sentry to track how actual users in the wild on $150 budget Androids experience your site. Performance optimization is not a one-time ticket; it is a cultural and architectural mindset.
         `
-    },
-    {
-        id: 'zero-trust-security-modern-web',
-        title: 'Zero-Trust Security: Architecting Defense for Modern Web Applications',
-        summary: 'Explore why traditional perimeter security is completely dead. Discover how to actively implement robust zero-trust architectures in your web apps using modern authentication pipelines and strict access control paradigms.',
-        date: 'Sep 05, 2024',
-        readTime: '16 min read',
-        category: 'Security',
-        image: 'https://images.unsplash.com/photo-1555952494-efd681c7e3f9?q=80&w=800&auto=format&fit=crop',
-        featured: false,
-        content: `
+  },
+  {
+    id: 'zero-trust-security-modern-web',
+    title: 'Zero-Trust Security: Architecting Defense for Modern Web Applications',
+    summary: 'Explore why traditional perimeter security is completely dead. Discover how to actively implement robust zero-trust architectures in your web apps using modern authentication pipelines and strict access control paradigms.',
+    date: 'Jan 19, 2026',
+    readTime: '16 min read',
+    category: 'Security',
+    image: 'https://images.unsplash.com/photo-1555952494-efd681c7e3f9?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
 ### The Perimeter is Dead: The End of Castle-and-Moat
 Historically, corporate network security strictly relied on the "castle-and-moat" model. If a server, employee laptop, or API gateway was physically inside the corporate network firewall (the castle walls), it was implicitly trusted. Everything on the outside was considered hostile.
 
@@ -699,19 +699,19 @@ Set-Cookie: session=xyz123; Secure; HttpOnly; SameSite=Strict; Max-Age=3600
 
 Setting \`HttpOnly\` prevents JavaScript from reading the cookie, obliterating the threat of XSS theft. Setting \`SameSite=Strict\` ensures that Cross-Site Request Forgery (CSRF) attacks bounce off your application harmlessly.
 
-Security in 2024 is not a one-off checklist you complete right before launching to production. It is an evolving, continuous lifecycle. Embrace the zero-trust doctrine to build web applications resilient against truly adversarial modern threats.
+Security in 2026 is not a one-off checklist you complete right before launching to production. It is an evolving, continuous lifecycle. Embrace the zero-trust doctrine to build web applications resilient against truly adversarial modern threats.
         `
-    },
-    {
-        id: 'micro-frontends-module-federation',
-        title: 'Micro-Frontends with Module Federation: A Comprehensive Developer Guide',
-        summary: 'Strategically break down massive, unwieldy monolithic frontend applications into scalable, independently deployable micro-frontends utilizing the power of Webpack 5 Module Federation.',
-        date: 'Aug 28, 2024',
-        readTime: '17 min read',
-        category: 'Architecture',
-        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
-        featured: false,
-        content: `
+  },
+  {
+    id: 'micro-frontends-module-federation',
+    title: 'Micro-Frontends with Module Federation: A Comprehensive Developer Guide',
+    summary: 'Strategically break down massive, unwieldy monolithic frontend applications into scalable, independently deployable micro-frontends utilizing the power of Webpack 5 Module Federation.',
+    date: 'Jan 12, 2026',
+    readTime: '17 min read',
+    category: 'Architecture',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
 ### The Frontend Monolith Problem
 As tech companies scale massively, their frontend codebase often morphs into an absolute, unwieldy monolith. What starts as a simple, elegant React application inevitably balloons over years of feature development. Soon, local builds take 15 minutes, release cycles are deeply bottlenecked by coordinating four different product squads, and updating a single crucial dependency (like moving from React 17 to React 18) feels like performing open-heart surgery on an unstable patient.
 
@@ -786,17 +786,17 @@ export default function ShellLayout() {
 Micro-frontends introduce significant orchestration and DevOps complexity. 
 If the Cart team accidentally ships a wildly broken component that crashes immediately upon mounting, it will take down the Host application unless wrapped in strictly robust **React Error Boundaries**. Furthermore, establishing clear rules for global CSS scope and state management (avoiding a massive global Redux store in favor of localized contexts) is completely vital before attempting to adopt this powerful but heavy architecture.
         `
-    },
-    {
-        id: 'future-web-design-spatial-ui',
-        title: 'The Unstoppable Future of Web Design: Spatial UI and Generative Interfaces',
-        summary: 'A massive exploration of how AR/VR headsets, Apple VisionOS, WebXR, and advanced generative AI models are fundamentally altering how we orchestrate and interact with web interfaces in 2024.',
-        date: 'Aug 20, 2024',
-        readTime: '14 min read',
-        category: 'Design',
-        image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop',
-        featured: false,
-        content: `
+  },
+  {
+    id: 'future-web-design-spatial-ui',
+    title: 'The Unstoppable Future of Web Design: Spatial UI and Generative Interfaces',
+    summary: 'A massive exploration of how AR/VR headsets, Apple VisionOS, WebXR, and advanced generative AI models are fundamentally altering how we orchestrate and interact with web interfaces in 2026.',
+    date: 'Jan 05, 2026',
+    readTime: '14 min read',
+    category: 'Design',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
 ### Breaking Violently Out of the Rectangle
 For roughly 30 years, web design has been deeply confined to flat, uncompromising, 2D rectangular glass screens. Whether it was an enormous 27-inch desktop monitor or a 6-inch mobile screen, grid systems and visual hierarchies were always plotted along an X and Y axis. You click with a mouse, or you swipe with a thumb.
 
@@ -834,17 +834,17 @@ To survive in this evolving climate, UX designers must deeply augment their skil
 
 The future of the web is no longer about filling a screen with information. It is about dynamically generating the exact right contextual information, and suspending it seamlessly into reality.
         `
-    },
-    {
-        id: 'scaling-nodejs-distributed-systems',
-        title: 'Scaling Node.js Engineering: Navigating from Massive Monolith to Distributed Microservices',
-        summary: 'A tactical, battle-tested approach to decomposing Node.js monolith architectures. Learn deeply how to implement massively scalable event-driven architectures equipped with Apache Kafka.',
-        date: 'Aug 10, 2024',
-        readTime: '18 min read',
-        category: 'Backend',
-        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop',
-        featured: false,
-        content: `
+  },
+  {
+    id: 'scaling-nodejs-distributed-systems',
+    title: 'Scaling Node.js Engineering: Navigating from Massive Monolith to Distributed Microservices',
+    summary: 'A tactical, battle-tested approach to decomposing Node.js monolith architectures. Learn deeply how to implement massively scalable event-driven architectures equipped with Apache Kafka.',
+    date: 'Dec 29, 2025',
+    readTime: '18 min read',
+    category: 'Backend',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
 ### The Node.js Monolith Breaking Point
 Node.js, built upon the blisteringly fast V8 JavaScript engine, is spectacularly efficient for asynchronous I/O-bound tasks. A single, elegantly structured monolithic Node.js application can easily routinely handle millions of requests a month if architected well.
 
@@ -886,7 +886,95 @@ Transitioning to heavily distributed microservices in Node.js requires an aggres
 
 However, once accomplished, it pays off with unmatched planetary-scale robustness, isolation, and unprecedented massive team autonomy.
         `
-    }
+  },
+  {
+    id: 'mastering-frontend-architecture-7-patterns',
+    title: 'Mastering Frontend Architecture: 7 Essential Design Patterns',
+    summary: 'In the early days of frontend development, code was often a "spaghetti" of logic and presentation. As web applications grew in complexity, the need for structured architectural patterns became undeniable. For any developer looking to move from junior to senior levels, understanding these patterns is not just an advantage—it is a requirement.',
+    date: 'Dec 22, 2025',
+    readTime: '12 min read',
+    category: 'Architecture',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop',
+    featured: false,
+    content: `
+### Introduction
+In the early days of frontend development, code was often a "spaghetti" of logic and presentation. As web applications grew in complexity, the need for structured architectural patterns became undeniable. For any developer looking to move from junior to senior levels, understanding these patterns is not just an advantage—it is a requirement.
+
+These patterns help us solve a recurring problem: How do we manage state and logic without making our components impossible to test or reuse?
+
+### 1. The Container-Presentational Pattern
+**Concept:** This pattern splits a component into two distinct roles: the "Container" (the brains) and the "Presentational" (the looks).
+
+**Container Components:** These handle API calls, manage state, and contain the "business logic". They don't care about how things look; they only care about how things work.
+
+**Presentational Components:** These receive data via props only. Their sole job is UI rendering, styling, and layout.
+
+**Use Case:** Ideal for dashboard widgets or authentication pages where the data-fetching logic remains consistent, but the UI might need to change across different parts of the app.
+
+### 2. Compound Components Pattern
+**Concept:** This pattern allows you to create flexible and declarative component APIs by using a parent component that manages shared state for its children.
+
+Instead of passing dozens of props to a single "God component," you break it down:
+
+\`\`\`javascript
+<Modal>
+  <Modal.Header />
+  <Modal.Body />
+  <Modal.Footer />
+</Modal>
+\`\`\`
+
+**Use Case:** Essential for complex UI elements like Modals, Dropdowns, and Tab systems where the user needs control over the order and presence of sub-components.
+
+### 3. Controlled vs. Uncontrolled Components
+**Concept:** This defines who controls the state of an input field: React or the DOM.
+
+**Controlled:** React manages the state via onChange and value props. This is the "React way" and is perfect for real-time form validation.
+
+**Uncontrolled:** The DOM manages the state. You access values using a ref.
+
+**Use Case:** Use Controlled for complex forms with validation; use Uncontrolled for simple inputs or file uploads where performance-critical input is needed.
+
+### 4. The Observer Pattern
+**Concept:** This pattern decouples components by using event-driven communication. Components don't talk to each other directly; they "subscribe" to an Event Emitter or Store.
+
+When an action occurs (like a successful login), an event is emitted, and all "listeners" are notified automatically.
+
+**Use Case:** Global notification systems (Toasts), WebSocket updates, and analytics tracking.
+
+### 5. State Reducer Pattern
+**Concept:** This is an advanced pattern that allows the consumer of a component to override the internal state logic.
+
+By passing a custom reducer function, the developer using your component can say, "When this action happens, do this instead of the default behavior".
+
+**Use Case:** Headless UI components, reusable switch components, or highly complex forms where different instances of the component need slightly different logic.
+
+### 6. Render Props Pattern
+**Concept:** This pattern involves passing a function as a prop to a component. This function tells the component what to render based on the logic handled inside the component.
+
+It allows you to share complex logic (like mouse tracking or data fetching) while letting the user decide the UI structure.
+
+**Use Case:** Feature flags, permission-based UI wrappers, and toggle components.
+
+### 7. Higher-Order Components (HOCs)
+**Concept:** An HOC is a function that takes a component and returns a new component with "Extra Logic" injected into it.
+
+Think of it as a wrapper that adds a layer of functionality—like checking if a user is logged in—before rendering the "Wrapped Component".
+
+**Use Case:** Authentication guards, permission checks, and feature toggles.
+
+### Conclusion: Which Pattern Should You Choose?
+Design patterns are tools, not rules. As a computer engineering student, Ibrahim, your goal is to recognize which tool fits the specific "bottleneck" you are facing.
+
+Need to share logic? Use HOCs or Render Props.
+
+Building a UI library? Use Compound Components.
+
+Managing complex state overrides? Use the State Reducer.
+
+Mastering these seven patterns will not only make your code cleaner but will make you a much more valuable developer in the professional market.
+        `
+  }
 ];
 
 // Helper to safely expand file and inject the remaining posts on consecutive calls.
